@@ -17,7 +17,6 @@ return new class extends Migration
             $table->longText('description');
             $table->string('image');
             $table->boolean('in_stock');
-            $table->boolean('in_stock');
             $table->boolean('price');
             $table->timestamps();
         });
