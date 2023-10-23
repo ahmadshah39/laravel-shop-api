@@ -26,6 +26,9 @@ Route::get('/rota1', function () {
 Route::get('/rota2', function () {
     return 'rota2';
 });
+Route::get('/rota3', function () {
+    return 'rota3';
+});
 
 Route::get('/{any}', function ($any) {
     return $any;
