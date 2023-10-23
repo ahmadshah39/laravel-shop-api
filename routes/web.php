@@ -19,11 +19,3 @@ Route::get('/', function () {
 Route::get('/welcome', function () {
     return view('welcome');
 });
-
-Route::get('/{any}', function ($any) {
-    return $any;
-});
-
-Route::get('/rota', function () {
-    return 'd';
-});
