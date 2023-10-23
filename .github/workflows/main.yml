@@ -21,4 +21,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: "cd ~/domains/negativebits.com/public_html/lit/shop-api/lsapp && sh ./.scripts/deploy.sh"
+          script: "cd ~/domains/negativebits.com/public_html/lsapp/shop-api/lsapp && sh ./.scripts/deploy.sh"
