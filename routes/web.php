@@ -20,19 +20,6 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/rota1', function () {
-    return 'rota1';
-});
-Route::get('/rota2', function () {
-    return 'rota2';
-});
-Route::get('/rota3', function () {
-    return 'rota3';
-});
-Route::get('/rota4', function () {
-    return 'rota4';
-});
-
 Route::get('/{any}', function ($any) {
     return $any;
 });
