@@ -23,6 +23,9 @@ Route::get('/welcome', function () {
 Route::get('/rota1', function () {
     return 'rota1';
 });
+Route::get('/rota2', function () {
+    return 'rota2';
+});
 
 Route::get('/{any}', function ($any) {
     return $any;
