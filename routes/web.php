@@ -20,8 +20,8 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/rota', function () {
-    return 'rota';
+Route::get('/rota1', function () {
+    return 'rota1';
 });
 
 Route::get('/{any}', function ($any) {
