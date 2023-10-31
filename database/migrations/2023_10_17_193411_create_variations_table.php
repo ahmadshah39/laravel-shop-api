@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('variations', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('title');
             $table->text('description');
-            $table->foreignId('variation_type')->index();
+            $table->foreignId('variation_type_id')->index();
             $table->timestamps();
             $table->softDeletes();
         });
