@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('variations', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->text('description');
+            $table->foreignId('variation_type')->index();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

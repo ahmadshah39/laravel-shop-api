@@ -18,6 +18,7 @@ return new class extends Migration
             $table->bigInteger('quantity');
             $table->string('variations');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

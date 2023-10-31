@@ -19,6 +19,7 @@ return new class extends Migration
             $table->boolean('in_stock');
             $table->boolean('price');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

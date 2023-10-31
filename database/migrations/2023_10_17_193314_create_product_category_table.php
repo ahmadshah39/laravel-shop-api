@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('product_category', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('product_id')->index();
+            $table->foreignId('category_id')->index();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
