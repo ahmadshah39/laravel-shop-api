@@ -11,7 +11,7 @@ trait HttpResponse
             'status' => "Request was successfull",
             'message' => $message,
             'data' => $data
-        ], 200);
+        ], $code);
     }
 
     public function error( $message, $code): \Illuminate\Http\JsonResponse

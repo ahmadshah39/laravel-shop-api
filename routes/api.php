@@ -23,43 +23,39 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::middleware(['auth:sanctum'])->group(function () {
+Route::group(['middleware'=>'auth:sanctum', 'prefix' => 'admin'],function () {
 
     Route::group(['middleware'=> ['verified']], function (){
         Route::get('/user', function (Request $request) {
             return $request->user();
-        });
+        })->name('admin.user');
     });
-    
+
     Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
         ->middleware('throttle:6,1')
-        ->name('verification.send');
+        ->name('admin.verification.send');
 
     Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)
         ->middleware(['signed', 'throttle:6,1'])
-        ->name('verification.verify');
+        ->name('admin.verification.verify');
 
     Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
 
-    Route::put('password', [PasswordController::class, 'update'])->name('password.update');
+    Route::put('password', [PasswordController::class, 'update'])->name('admin.password.update');
 
     Route::post('logout', [AuthenticatedTokenController::class, 'destroy'])
-        ->name('logout');
+        ->name('admin.logout');
 });
 
 
 
 
-Route::middleware('guest')->group(function () {
-
-    Route::post('register', [RegisteredUserController::class, 'store']);
-
-    Route::post('login', [AuthenticatedTokenController::class, 'store'])->name('login');
-
+Route::group(['middleware'=>'guest', 'prefix' => 'admin'], function () {
+    Route::post('register', [RegisteredUserController::class, 'store'])->name('admin.register');
+    Route::post('login', [AuthenticatedTokenController::class, 'store'])->name('admin.login');
     Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
-        ->name('password.email');
-
+        ->name('admin.password.email');
     Route::post('reset-password/{token}', [NewPasswordController::class, 'store'])
-        ->name('password.store');
+        ->name('admin.password.store');
 });
 

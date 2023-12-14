@@ -38,7 +38,7 @@ class AuthenticatedTokenController extends Controller
                 'token' => $token,
             ],
             message: 'User successfully logged in',
-            code: 201
+            code: 200
         );
     }
 
@@ -52,7 +52,8 @@ class AuthenticatedTokenController extends Controller
 
         return $this->success(
             data:null,
-            message: 'User successfully logged out'
+            message: 'User successfully logged out',
+            code: 401
         );
     }
 }

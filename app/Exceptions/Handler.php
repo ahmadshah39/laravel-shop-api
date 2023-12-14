@@ -34,9 +34,9 @@ class Handler extends ExceptionHandler
         if ($exception instanceof ValidationException) {
                 return response()->json(['status' => 0, 'message' => $exception->getMessage(), 'errors' => $exception->validator->getMessageBag()], 422);
         }
-        if ($request->is('api/*')) {
-            return response()->json(['status' => 0, 'message' => $exception->getMessage() !== "" ? $exception->getMessage() : "Some Unknown Http Error",], 500);
-        }
+//        if ($request->is('api/*')) {
+//            return response()->json(['status' => 0, 'message' => $exception->getMessage() !== "" ? $exception->getMessage() : "Some Unknown Http Error",], 500);
+//        }
         return parent::render($request, $exception);
     }
 }

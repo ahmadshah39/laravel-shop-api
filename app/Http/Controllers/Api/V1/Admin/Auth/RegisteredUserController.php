@@ -43,6 +43,7 @@ class RegisteredUserController extends Controller
                 'token' => $token,
             ],
             message: 'User registered successfully',
+            code:201
         );
     }
 }

@@ -81,10 +81,11 @@ class VerifyEmail extends Notification
         }
 
         return URL::temporarySignedRoute(
-            'verification.verify',
+            'admin.verification.verify',
             Carbon::now()->addMinutes(Config::get('auth.verification.expire', 60)),
             [
                 'id' => $notifiable->id,
+                'hash' => sha1($notifiable->getEmailForVerification()),
             ]
         );
     }
