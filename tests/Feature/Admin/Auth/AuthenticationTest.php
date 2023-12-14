@@ -3,7 +3,7 @@
 namespace Admin\Auth;
 
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
+use Laravel\Sanctum\Sanctum;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -38,8 +38,11 @@ class AuthenticationTest extends TestCase
 
     public function test_users_can_logout(): void
     {
-        $user = User::factory()->create();
+        Sanctum::actingAs(
+            User::factory()->create(),
+            ['*']
+        );
 
-        $this->actingAs($user)->post(route('admin.logout'))->assertUnauthorized();
+        $this->post(route('admin.logout'))->assertUnauthorized();
     }
 }

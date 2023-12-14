@@ -48,7 +48,7 @@ class AuthenticatedTokenController extends Controller
     public function destroy(Request $request): JsonResponse
     {
 
-        $request->user()->currentToken()->delete();
+        $request->user()->currentAccessToken()->delete();
 
         return $this->success(
             data:null,

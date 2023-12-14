@@ -39,7 +39,7 @@ Route::group(['middleware'=>'auth:sanctum', 'prefix' => 'admin'],function () {
         ->middleware(['signed', 'throttle:6,1'])
         ->name('admin.verification.verify');
 
-    Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
+    Route::post('confirm-password', [ConfirmablePasswordController::class, 'store'])->name('admin.confirmPassword');
 
     Route::put('password', [PasswordController::class, 'update'])->name('admin.password.update');
 
