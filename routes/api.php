@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\V1\Admin\Auth\PasswordController;
 use App\Http\Controllers\Api\V1\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Api\V1\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Api\V1\Admin\Auth\VerifyEmailController;
+use App\Http\Controllers\Api\V1\Admin\Product\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -59,3 +60,8 @@ Route::group(['middleware'=>'guest', 'prefix' => 'admin'], function () {
         ->name('admin.password.store');
 });
 
+    Route::get('products', [ProductController::class, 'index']);
+    Route::post('products', [ProductController::class, 'store']);
+    Route::patch('products/{id}', [ProductController::class, 'update']);
+    Route::get('products/{id}', [ProductController::class, 'show']);
+    Route::delete('products/{id}', [ProductController::class, 'destroy']);

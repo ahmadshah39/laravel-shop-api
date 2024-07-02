@@ -8,7 +8,7 @@ trait HttpResponse
     public function success($data, $message, $code = 200): \Illuminate\Http\JsonResponse
     {
         return response()->json([
-            'status' => "Request was successfull",
+            'success' => 1,
             'message' => $message,
             'data' => $data
         ], $code);
@@ -17,7 +17,7 @@ trait HttpResponse
     public function error( $message, $code): \Illuminate\Http\JsonResponse
     {
         return response()->json([
-            'status' => "Request was unsuccessfull",
+            'success' => 1,
             'message' => $message,
         ], $code);
     }
