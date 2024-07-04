@@ -16,7 +16,6 @@ class Cart extends Model
         'user_id',
         'product_id',
         'quantity',
-        'variations',
         'created_at',
         'updated_at',
         'deleted_at',
